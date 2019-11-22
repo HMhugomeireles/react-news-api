@@ -33,6 +33,16 @@ Documentation is concise
 * Git was used in a correct way.
 * Usability and overall UI care;
 
+## Features Required
+- [x] Article List
+- [ ] Article Page
+- [ ] Router implementation
+- [ ] Responsive Layout breakpoints 0px to 767px
+- [ ] Responsive Layout breakpoints 768px up
+## Features improvements
+- [ ] Route not found 404
+- [ ] Suspense
+- [ ] Cache Components
 
 
 In the project directory, you can run:
