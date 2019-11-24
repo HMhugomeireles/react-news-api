@@ -1,6 +1,8 @@
-import React from 'react'
-import { Title } from './styled'
+import React from 'react';
+import { TitleComponent } from './styled';
 
-export default (props) => (
-  <Title {...props} />
-)
+export default function Title(props) {
+  return (
+    <TitleComponent {...props} />
+  )
+}

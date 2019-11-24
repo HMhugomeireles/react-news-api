@@ -1,6 +1,8 @@
-import Styled from 'styled-components'
+import Styled from 'styled-components';
 
-export const Title = Styled.h1`
-  font-size: ${(theme) => theme.fontSizeTitle ? theme.fontSizeTitle : "2rem" };
-  color: ${(theme) => theme.fontSizeTitle ? theme.fontSizeTitle : "#333" };
-`
+export const TitleComponent = Styled.h2`
+  font-size: ${({fontSize}) => fontSize ? fontSize : "2rem"};
+  color: ${({color}) => color ? color : "#333"};
+  text-align: ${({textCenter}) => textCenter ? "center" : "default"};
+  padding: 20px;
+`;
