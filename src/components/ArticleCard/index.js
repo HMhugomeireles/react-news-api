@@ -1,20 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { ArticleItem } from './styled'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArticleItem } from './styled';
+import { NotFoundImageInCard } from './../placeHolders/';
 
 export default function ArticleCard(props) {
-  const { title, date, author, media, category } = props;
-  let articleLink = title.replace(" ", "-");
+  const { title, description, publishedAt, author, urlToImage, source } = props;
   return (
     <ArticleItem>
-      <Link to={`/articles/${articleLink}`}>
+      <Link to={`/articles/${title}`}>
         <header>
-          <img src={media.image} alt={media.alt}/>
+          {urlToImage === null ? 
+            <NotFoundImageInCard />
+            :
+            <img src={urlToImage} alt=""/>
+          }
         </header>
         <div>
-          <span>{category}</span>
+          <span>{source.name}</span>
           <h2>{title}</h2>
-          <small>{date} - Author: {author}</small>
+          <p>{publishedAt} - Author: {author === null ? "Unknown" : author}</p>
+          <div>{description}</div>
         </div>
       </Link>
     </ArticleItem>
