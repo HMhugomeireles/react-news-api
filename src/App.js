@@ -5,14 +5,17 @@ import RouterHandler from './Routes';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout>
+    <Layout>
+      <BrowserRouter>
         <RouterHandler />
-      </Layout>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Layout>
   );
 }
 
 const Layout = Styled.div`
   min-height: 100vh;
+  max-width: 1024px;
+  margin: 0 auto;
+  background: #fff;
 `
