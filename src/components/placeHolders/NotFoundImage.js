@@ -4,7 +4,7 @@ import Styled from 'styled-components';
 export default function NotFoundImage() {
   return (
     <NotFoundImageComponent>
-      <span>Image Not Found</span>
+      <b>Image Not Found</b>
     </NotFoundImageComponent>
   )
 }
@@ -12,7 +12,6 @@ export default function NotFoundImage() {
 const NotFoundImageComponent = Styled.div`
   width: 100%;
   height: 100%;
-  min-height: ${({minHeight}) => minHeight ? minHeight : '250px'};
   display: flex;
   justify-content: center;
   align-items: center;

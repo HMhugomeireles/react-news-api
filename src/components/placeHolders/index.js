@@ -1,8 +1,8 @@
+import LoadingImage from './LoadingImage';
 import NotFoundImage from './NotFoundImage';
-import NotFoundImageInCard from './NotFoundImageInCard';
 
 
 export {
-  NotFoundImage,
-  NotFoundImageInCard
+  LoadingImage,
+  NotFoundImage
 }

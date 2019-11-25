@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Content, BreadCrumb, Title, ALink } from './../../../components/';
-import { NotFoundImage } from './../../../components/placeHolders/';
+import { NotFoundImage, LoadingImage } from './../../../components/placeHolders/';
 import { ArticleSection, ArticleHeader, ArticleTopBody } from './styled';
-import { useFetch } from './../../../hooks/Fetch';
+import { useFetch, LazyImage } from './../../../hooks/index';
 import { ARTICLES_API, EXTEND_CONTENT } from './../../../util/StringConstants';
+import { convertStringDateTimeZoneToGMTString } from './../../../util/UtilDataHandler';
 
 const FIRST = 0;
 
