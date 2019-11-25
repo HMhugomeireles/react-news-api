@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArticleItem } from './styled';
-import { NotFoundImageInCard } from './../placeHolders/';
+import { LazyImage } from './../../hooks/';
+import { NotFoundImage } from './../placeHolders/';
 
 export default function ArticleCard(props) {
   const { title, description, publishedAt, author, urlToImage, source } = props;
@@ -10,9 +11,9 @@ export default function ArticleCard(props) {
       <Link to={`/articles/${title}`}>
         <header>
           {urlToImage === null ? 
-            <NotFoundImageInCard />
+            <NotFoundImage />
             :
-            <img src={urlToImage} alt=""/>
+            <LazyImage src={urlToImage} alt=""/>
           }
         </header>
         <div>

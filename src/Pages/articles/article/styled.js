@@ -10,5 +10,5 @@ export const ArticleHeader = Styled.header`
 
 
 export const ArticleTopBody = Styled.div`
-    
+    padding: 10px;
 `;
