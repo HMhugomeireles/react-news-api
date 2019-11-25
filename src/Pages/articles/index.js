@@ -1,20 +1,13 @@
 import React from 'react';
 import { ArticlePage, WrapperSection } from './styled';
 import { Title, ArticleCard, Spinner } from './../../components';
-import { useFetch } from './../../hooks/Fetch';
+import { useFetch } from './../../hooks/';
 import { ARTICLES_API } from './../../util/StringConstants';
+import { convertStringDateTimeZoneToGMTString } from './../../util/UtilDataHandler';
 
 export default function Articles() {
   const { data, loading } = useFetch(ARTICLES_API);
  
-  function convertDate(stringDate) {
-    if(stringDate === null) {
-      return "Date not available";
-    } else {
-      return new Date(stringDate);
-    }
-  }
-
   return (
     <ArticlePage>
       <Title>Top headlines</Title>
@@ -28,7 +21,7 @@ export default function Articles() {
               id={index}
               title={article.title}
               description={article.description}
-              publishedAt={article.publishedAt}
+              publishedAt={convertStringDateTimeZoneToGMTString(article.publishedAt)}
               author={article.author}
               urlToImage={article.urlToImage}
               source={article.source}
