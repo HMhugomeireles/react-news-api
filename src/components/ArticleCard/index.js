@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArticleItem } from './styled';
-import { LazyImage } from './../../hooks/'
+import { LazyImage } from './../../hooks/';
 import { NotFoundImage } from './../placeHolders/';
 
 export default function ArticleCard(props) {
