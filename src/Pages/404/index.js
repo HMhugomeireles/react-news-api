@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { PageNotFoundComponent } from './styled';
 
-export default function PageNotFound() {
+export default function PageNotFound({history}) {
   return (
-    <div>
-      <h1>404 Page not found!</h1>
-    </div>
+    <PageNotFoundComponent>
+      <article>
+        <h2>404<div></div></h2>
+        <p>There are nothing where, Try <span onClick={history.goBack}> &lt; Go Back</span></p>
+      </article>
+    </PageNotFoundComponent>
   )
 }
+
