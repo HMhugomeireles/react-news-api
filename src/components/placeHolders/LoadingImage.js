@@ -1,17 +1,18 @@
 import React from 'react';
 import Styled from 'styled-components';
 
-export default function NotFoundImageInCard() {
+export default function LoadingImage({text}) {
   return (
-    <NotFoundImageInCardComponent>
-      <b>Image Not Found</b>
-    </NotFoundImageInCardComponent>
+    <LoadingImageComponent>
+      <span>{text}</span>
+    </LoadingImageComponent>
   )
 }
 
-const NotFoundImageInCardComponent = Styled.div`
+const LoadingImageComponent = Styled.div`
   width: 100%;
   height: 100%;
+  min-height: ${({minHeight}) => minHeight ? minHeight : '250px'};
   display: flex;
   justify-content: center;
   align-items: center;
