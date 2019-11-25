@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
-const placeHolder =
-  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=";
+import { IMAGE_PLACEHOLDER } from './../util/StringConstants';
 
 const Image = styled.img`
-  display: block;
-  height: 100px;
-  width: 100px;
+  width: 100%;
+  margin-bottom: 30px;
 
   // Add a smooth animation on loading
   @keyframes loaded {
@@ -26,12 +23,12 @@ const Image = styled.img`
 
   &.has-error {
     // fallback to placeholder image on error
-    content: url(${placeHolder});
+    content: url(${IMAGE_PLACEHOLDER});
   }
 `;
 
-export const LazyImage = ({ src, alt }) => {
-  const [imageSrc, setImageSrc] = useState(placeHolder);
+export const LazyImage = ({ src, alt}) => {
+  const [imageSrc, setImageSrc] = useState(IMAGE_PLACEHOLDER);
   const [imageRef, setImageRef] = useState();
 
   const onLoad = event => {
@@ -42,39 +39,30 @@ export const LazyImage = ({ src, alt }) => {
     event.target.classList.add("has-error");
   };
 
-  useEffect(
-    () => {
+  useEffect(() => {
       let observer;
       let didCancel = false;
 
       if (imageRef && imageSrc !== src) {
         if (IntersectionObserver) {
-          observer = new IntersectionObserver(
-            entries => {
+          observer = new IntersectionObserver(entries => {
               entries.forEach(entry => {
-                if (
-                  !didCancel &&
-                  (entry.intersectionRatio > 0 || entry.isIntersecting)
-                ) {
+                if (!didCancel && (entry.intersectionRatio > 0 || entry.isIntersecting)) {
                   setImageSrc(src);
                   observer.unobserve(imageRef);
                 }
               });
-            },
-            {
+            }, {
               threshold: 0.01,
               rootMargin: "75%"
             }
           );
           observer.observe(imageRef);
-        } else {
-          // Old browsers fallback
-          setImageSrc(src);
         }
       }
       return () => {
         didCancel = true;
-        // on component cleanup, we remove the listner
+
         if (observer && observer.unobserve) {
           observer.unobserve(imageRef);
         }

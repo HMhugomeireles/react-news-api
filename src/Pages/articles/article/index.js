@@ -64,18 +64,28 @@ export default  function Article({history, match}) {
             color={"#646464"}
           >{post.description}</Title>
         }
+        {post.publishedAt === null ?
+          "Published: Unknown"
+          :
+          <p>Published: <b>{convertStringDateTimeZoneToGMTString(post.publishedAt)}</b></p>
+        }
         {post.author === null ?
           "Author: Unknown"
           :
           <p>Author: <b>{post.author}</b></p>
         }
       </ArticleHeader>
-      {post.urlToImage === null ?
-        <NotFoundImage 
-          minHeight={"250px"}
-        />
+      {post.urlToImage === null && loading ?
+        <LoadingImage text={"Loading..."} minHeight={"250px"} />
         :
-        <img style={{width: '100%', margin: '30px 0'}} src={post.urlToImage} alt=""/>
+        post.urlToImage === null && !loading ?
+          <NotFoundImage minHeight={"250px"} />
+          :
+          <LazyImage
+            style={{width: '100%', margin: '30px 0'}}
+            src={post.urlToImage} 
+            alt=""
+          />
       }
       <ArticleTopBody>
         {post.url === null ?
