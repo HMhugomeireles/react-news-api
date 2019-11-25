@@ -33,15 +33,19 @@ Documentation is concise
 * Git was used in a correct way.
 * Usability and overall UI care;
 
-## Features Required
+# Features Required
 - [x] Article List
-- [ ] Article Page
-- [ ] Router implementation
-- [ ] Responsive Layout breakpoints 0px to 767px
-- [ ] Responsive Layout breakpoints 768px up
-## Features improvements
+- [x] Article Page
+- [x] Router implementation
+- [x] Responsive Layout breakpoints 0px to 767px
+- [x] Responsive Layout breakpoints 768px up
+
+# Features improvements(By me)
+- [x] Responsive Layout breakpoint 0px at 425px
+- [x] Fetch real data
 - [ ] Route not found 404
-- [ ] Suspense
+- [x] hook fetch
+- [ ] Hook LazyLoad
 - [ ] Cache Components
 
 
