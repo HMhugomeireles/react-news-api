@@ -26,9 +26,17 @@ export default  function Article({history, match}) {
   const { id } = match.params;
 
   useEffect(() => {
+    function verifyRedirect(result) {
+      if(result) {
+        setPost(result);
+      } else {
+        history.push("/NotFound");
+      }
+    }
+    
     if(!loading) {
       const article = data.articles.filter(article => article.title === id)[FIRST];
-      setPost(article);
+      verifyRedirect(article);
     }
   }, [loading]);
 
