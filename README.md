@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## React news api
   This app will use the https://newsapi.org/ Api to list top headlines.
 
-# Features Required
+# Features to implement
 - [x] Article List
 - [x] Article Page
 - [x] Router implementation
